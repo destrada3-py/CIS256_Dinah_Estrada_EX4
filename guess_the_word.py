@@ -26,9 +26,9 @@ def play_game():
     attempts_left = 10
 
     while attempts_left > 0:
-        print(f"Word: {display_progress(secret_word, guessed_letters)}")
-        print(f"Attempts left: {attempts_left}")
-        guess = input("Guess a letter: ").lower()
+        print(f"Hidden Term: {display_progress(secret_word, guessed_letters)}")
+        print(f"Attempts Left: {attempts_left}")
+        guess = input("Guess a Letter: ").lower()
 
         # The following consists of validation to ensure the input 
         # meets required criteria.

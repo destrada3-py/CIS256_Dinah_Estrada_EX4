@@ -43,7 +43,7 @@ def play_game():
         guessed_letters.add(guess)
 
         if guess in secret_word:
-            print("Correct!\n")
+            print("Correct!✅\n")
         else:
             print("Incorrect guess!\n")
             attempts_left -= 1

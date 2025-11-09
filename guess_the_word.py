@@ -28,17 +28,20 @@ def play_game():
     while attempts_left > 0:
         print(f"Hidden Term: {display_progress(secret_word, guessed_letters)}")
         print(f"Attempts Left: {attempts_left}")
-        guess = input("Guess a Letter: ").lower()
 
-        # The following consists of validation to ensure the input 
-        # meets required criteria.
-        if len(guess) != 1 or not guess.isalpha():
-            print("Invalid Entry! Please enter only one letter (A-Z).\n")
-            continue
+        # ✅ Added: inner loop to keep asking until valid input is provided
+        while True:
+            guess = input("Guess a Letter: ").lower()
 
-        if guess in guessed_letters:
-            print("You have already selected that letter. Please choose a different one.\n")
-            continue
+            # The following consists of validation to ensure the input 
+            # meets required criteria.
+            if len(guess) != 1 or not guess.isalpha():
+                print("Invalid Entry! Please enter only one letter (A-Z).\n")
+                continue  # ask again
+            if guess in guessed_letters:
+                print("You have already selected that letter. Please choose a different one.\n")
+                continue  # ask again
+            break  # valid input received
 
         guessed_letters.add(guess)
 

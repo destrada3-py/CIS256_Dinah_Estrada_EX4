@@ -1,4 +1,4 @@
-# guess_the_word.py
+# test_delete_guess_word
 
 import random
 
@@ -29,7 +29,8 @@ def play_game():
         print(f"Hidden Term: {display_progress(secret_word, guessed_letters)}")
         print(f"Attempts Left: {attempts_left}")
 
-        # ✅ Added: inner loop to keep asking until valid input is provided
+        # New Addition: Implemented an inner loop to ensure 
+        # continuous prompting for valid input.
         while True:
             guess = input("Guess a Letter: ").lower()
 
@@ -37,18 +38,18 @@ def play_game():
             # meets required criteria.
             if len(guess) != 1 or not guess.isalpha():
                 print("Invalid Entry! Please enter only one letter (A-Z).\n")
-                continue  # ask again
+                continue  # Prompts user again for valid input.
             if guess in guessed_letters:
                 print("You have already selected that letter. Please choose a different one.\n")
-                continue  # ask again
-            break  # valid input received
+                continue  # Prompts user again for valid input.
+            break  # Exits loop when a valid letter has been entered.
 
         guessed_letters.add(guess)
 
         if guess in secret_word:
             print("Correct!✅\n")
         else:
-            print("Incorrect guess!\n")
+            print("Incorrect guess. Try again!\n")
             attempts_left -= 1
 
         if all(letter in guessed_letters for letter in secret_word):
